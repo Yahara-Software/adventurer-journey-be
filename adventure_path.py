@@ -21,6 +21,9 @@
 
 # IN TOTAL: +30 vertical, +2 horizontal --> 30.0665927567
 
+from math import sqrt
+
+
 def direction_splitter(directions, letter_options):
     result_list = []
     current_direction = {
@@ -67,12 +70,16 @@ def calculate_distance(list_of_steps):
                 total_steps["horizontal"] += steps
             case "L":
                 total_steps["horizontal"] -= steps
-    print(total_steps)
+    return total_steps
 
-def run_simulation(direction_string):
+def hypotenuse_calculator(a, b):
+    c_squared = a ** 2 + b ** 2
+    c = sqrt(c_squared)
+    return c
+
+def run_simulation(directions_string):
     possible_directions = "LRFB"
-    split_directions = direction_splitter(direction_string, possible_directions)
-    calculate_distance(split_directions)
-
-directions_to_parse = "15F6B6B5L16R8B16F20L6F13F11R"
-run_simulation(directions_to_parse)
+    split_directions = direction_splitter(directions_string, possible_directions)
+    total_distance_dict = calculate_distance(split_directions)
+    total_distance_value = hypotenuse_calculator(total_distance_dict["horizontal"], total_distance_dict["vertical"])
+    return total_distance_value
