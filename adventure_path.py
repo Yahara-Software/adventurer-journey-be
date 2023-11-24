@@ -1,11 +1,3 @@
-# Adventurer Path to Calculate
-
-# *The directions are provided in the number of steps first and the direction second. For example, 6F indicates 6 steps forward. Other possible directions are B for backward, R for to the right, and finally, L for to the left.*
-
-## Directions to Use
-
-# `15F6B6B5L16R8B16F20L6F13F11R`
-
 # Split into individual directions (split apart at each letter)
 # POSITIVE DIRECTIONS:
     # F, R
@@ -28,8 +20,6 @@
     # 11R : +11 horizontal
 
 # IN TOTAL: +30 vertical, +2 horizontal --> 30.0665927567
-directions_to_parse = "15F6B6B5L16R8B16F20L6F13F11R"
-possible_directions = "LRFB"
 
 def direction_splitter(directions, letter_options):
     result_list = []
@@ -55,7 +45,34 @@ def direction_splitter(directions, letter_options):
             #append like a string for now, will convert to int later
         else:
             current_direction["steps"] += value
-    for direction in result_list:
-        print(direction)
+    return result_list
 
-direction_splitter(directions_to_parse, possible_directions)
+def calculate_distance(list_of_steps):
+    # At this point, list_of_steps is a list of dictionaries
+    # Each has DIRECTION (str) and STEPS (str)
+    # Iterate through list, determine if + or -, and vertical or horizontal
+    total_steps = {
+        "vertical": 0,
+        "horizontal": 0
+    }
+    for individual_step in list_of_steps:
+        direction = individual_step["direction"]
+        steps = int(individual_step["steps"])
+        match direction:
+            case "B":
+                total_steps["vertical"] -= steps
+            case "F":
+                total_steps["vertical"] += steps
+            case "R":
+                total_steps["horizontal"] += steps
+            case "L":
+                total_steps["horizontal"] -= steps
+    print(total_steps)
+
+def run_simulation(direction_string):
+    possible_directions = "LRFB"
+    split_directions = direction_splitter(direction_string, possible_directions)
+    calculate_distance(split_directions)
+
+directions_to_parse = "15F6B6B5L16R8B16F20L6F13F11R"
+run_simulation(directions_to_parse)
