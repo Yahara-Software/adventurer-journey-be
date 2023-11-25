@@ -82,4 +82,5 @@ def run_simulation(directions_string):
     split_directions = direction_splitter(directions_string, possible_directions)
     total_distance_dict = calculate_distance(split_directions)
     total_distance_value = hypotenuse_calculator(total_distance_dict["horizontal"], total_distance_dict["vertical"])
+    print(f"You walked {str(total_distance_value)} steps from where you started - what a journey!")
     return total_distance_value
