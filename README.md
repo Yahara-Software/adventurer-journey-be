@@ -34,15 +34,18 @@ Given the Path Instructions above, programmatically parse the instructions and d
         self.yPos += ySteps 
         return
 ```
-    
+``` 
     def moveBackward(self,steps):      
         self.yPos -= ySteps 
         return
-    
+```
+```    
     def moveRight(self,steps):        
         self.xPos += xSteps 
         return
-    
+```
+``` 
     def moveLeft(self,steps):   
         self.xPos -= xSteps 
         return
+```
