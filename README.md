@@ -30,19 +30,19 @@ Given the Path Instructions above, programmatically parse the instructions and d
 - If this interpretation was wrong and I should interprete as we don't change direction when we move (ex when traveler is facing north and move 5 steps left(5L) then he will be still facing north but just moved 5 in the left directions) then we would need to change the following functions:
 
 ```
-    def moveForward(self,steps):
-        self.yPos += ySteps
+    def moveForward(self,steps):    
+        self.yPos += ySteps 
         return
 ```
     
-    def moveBackward(self,steps):
-        self.yPos -= ySteps
+    def moveBackward(self,steps):      
+        self.yPos -= ySteps 
         return
     
     def moveRight(self,steps):        
-        self.xPos += xSteps
+        self.xPos += xSteps 
         return
     
-    def moveLeft(self,steps):
-        self.xPos -= xSteps
+    def moveLeft(self,steps):   
+        self.xPos -= xSteps 
         return
