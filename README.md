@@ -29,9 +29,11 @@ Given the Path Instructions above, programmatically parse the instructions and d
 - "You have the directions to your destination indicating the number of steps and the direction to travel" : I interpreted this sentence as when we change direction we also change direction (ex when traveler is facing north and move 5 steps left(5L) then he will be facing West)
 - If this interpretation was wrong and I should interprete as we don't change direction when we move (ex when traveler is facing north and move 5 steps left(5L) then he will be still facing north but just moved 5 in the left directions) then we would need to change the following functions:
 
+```
     def moveForward(self,steps):
         self.yPos += ySteps
         return
+```
     
     def moveBackward(self,steps):
         self.yPos -= ySteps
