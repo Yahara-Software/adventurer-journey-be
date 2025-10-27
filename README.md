@@ -5,6 +5,7 @@ Please complete the story below and create a program to solve the problem. Commi
 
 - *This problem is meant as a starting point for interview discussion*
 - *This is meant to be a simple problem with an open ended solution to see what you do with it*
+- *Be prepared to talk about solving this problem in the context of a full development lifecycle*
 
 ## Story Instructions
 You are an adventurer standing in the center of a map facing North, and you’re trying to weave through the terrain to your final destination. You have the directions to your destination indicating the number of steps and the direction to travel.
