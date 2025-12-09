@@ -1,2 +1,5 @@
 
 .obsidian/
+/PathFinder/.vs
+/PathFinder/bin/Debug
+/PathFinder/obj/Debug
