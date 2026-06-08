@@ -23,7 +23,7 @@ class Vec2(BaseModel):
         return self.__mul__(scalar)
 
 
-class Insruction(BaseModel):
+class Instruction(BaseModel):
     steps: int
     direction: Literal["F", "B", "L", "R"]
 
@@ -39,6 +39,10 @@ class Insruction(BaseModel):
 
         if self.direction == "L":
             return -1 * Vec2(x=self.steps, y=0)
+
+
+def parse_instructions(input: str) -> list[Instruction]:
+    pass
 
 
 def main():
