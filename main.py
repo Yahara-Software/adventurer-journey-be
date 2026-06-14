@@ -41,12 +41,47 @@ class Instruction(BaseModel):
             return -1 * Vec2(x=self.steps, y=0)
 
 
+def next_match(chars: set[str], input: str) -> int:
+    """
+    Return the index of the first occurence of any character in chars
+    within input.
+
+    Args:
+        chars: Characters to search for.
+        input: String to search.
+
+    Returns:
+        The index of the first match.
+        Returns -1 if the no character matching chars is found.
+    """
+    indices = [input.find(c) for c in chars]
+    if all(index == -1 for index in indices):
+        return -1
+    return min(index for index in indices if index >= 0)
+
+
+def parse_instruction(input: str) -> Instruction:
+    pass
+
+
 def parse_instructions(input: str) -> list[Instruction]:
     pass
 
 
 def main():
-    pass
+    input = "15F6B6B5L16R8B16F20L6F13F11R"
+    to_match = {"F", "B", "L", "R"}
+    instructions = []
+
+    while True:
+        index = next_match(to_match, input)
+
+        if index == -1:
+            break
+
+        instruction = input[: index + 1]
+        instructions.append(instruction)
+        input = input[index + 1 :]
 
 
 if __name__ == "__main__":
