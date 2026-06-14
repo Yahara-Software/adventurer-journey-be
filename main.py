@@ -110,8 +110,7 @@ def parse_instructions(input: str) -> list[Instruction]:
     return [parse_instruction(instruction) for instruction in instructions]
 
 
-def main():
-    input = "15F6B6B5L16R8B16F20L6F13F11R"
+def solution(input) -> float:
     instructions = parse_instructions(input)
     vecs = [instruction.as_vec() for instruction in instructions]
 
@@ -119,8 +118,12 @@ def main():
     for vec in vecs:
         total += vec
 
-    distance = total.length()
+    return total.length()
 
+
+def main():
+    input = "15F6B6B5L16R8B16F20L6F13F11R"
+    distance = solution(input)
     print(f"The total distance traveled is {distance}")
 
 
