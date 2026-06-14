@@ -1,3 +1,46 @@
+# How To Run My Solution
+Make sure requirements are installed. 
+
+## Requirements
+```
+python >= 3.12 (can't guarentee this will work for older versions)
+uv (recommended) or pip
+```
+[uv install instructions](https://docs.astral.sh/uv/getting-started/installation/)
+
+## Running With uv (Recommended)
+To run the main script with uv simply run:
+```
+uv run main.py
+```
+To exectute unit tests run:
+```
+uv python -m pytest
+```
+
+## Running With Pip
+## With pip
+Create a virtual enviroment and activate
+```
+python -m venv venv
+source venv/bin/activate
+```
+
+install packages with
+```
+pip install -r requirements.txt
+```
+
+Execute the script:
+```
+python main.py
+```
+
+Run tests:
+```
+python -m pytest
+```
+
 # Adventurer Journey - Back End
 Please complete the story below and create a program to solve the problem. Commit any work back to the remote no later than 48 hours before the next interview.
 
