@@ -1,3 +1,4 @@
+import math
 from typing import Literal
 
 from pydantic import BaseModel
@@ -6,6 +7,13 @@ from pydantic import BaseModel
 class Vec2(BaseModel):
     x: float
     y: float
+
+    @staticmethod
+    def zero() -> "Vec2":
+        return Vec2(x=0.0, y=0.0)
+
+    def length(self) -> float:
+        return math.sqrt(self.x**2 + self.y**2)
 
     def __add__(self, other: "Vec2") -> "Vec2":
         return Vec2(
@@ -105,6 +113,15 @@ def parse_instructions(input: str) -> list[Instruction]:
 def main():
     input = "15F6B6B5L16R8B16F20L6F13F11R"
     instructions = parse_instructions(input)
+    vecs = [instruction.as_vec() for instruction in instructions]
+
+    total = Vec2.zero()
+    for vec in vecs:
+        total += vec
+
+    distance = total.length()
+
+    print(f"The total distance traveled is {distance}")
 
 
 if __name__ == "__main__":
