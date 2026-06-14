@@ -61,15 +61,31 @@ def next_match(chars: set[str], input: str) -> int:
 
 
 def parse_instruction(input: str) -> Instruction:
-    pass
+    """
+    Parse a single instruction from a string.
+
+    Example the string '44F' will be parsed to
+    Instruction(steps=44, direction='F')
+
+    Args:
+        input: The string to parse into an instruction.
+
+    Returns:
+        A instruction object.
+
+    Raises:
+        A validation error if the instruction is not valid.
+        The instruction is invalid in two cases:
+            - The number of steps is not a valid integer
+            - The dirction is not F B L or R
+
+    """
+    direction = input[-1]
+    steps = input[: len(input) - 1]
+    return Instruction(steps=steps, direction=direction)
 
 
 def parse_instructions(input: str) -> list[Instruction]:
-    pass
-
-
-def main():
-    input = "15F6B6B5L16R8B16F20L6F13F11R"
     to_match = {"F", "B", "L", "R"}
     instructions = []
 
@@ -82,6 +98,13 @@ def main():
         instruction = input[: index + 1]
         instructions.append(instruction)
         input = input[index + 1 :]
+
+    return [parse_instruction(instruction) for instruction in instructions]
+
+
+def main():
+    input = "15F6B6B5L16R8B16F20L6F13F11R"
+    instructions = parse_instructions(input)
 
 
 if __name__ == "__main__":
